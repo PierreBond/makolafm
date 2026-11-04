@@ -1,0 +1,162 @@
+[
+  {
+    "id": "makola-taxi-rank",
+    "name": "Makola Taxi Rank",
+    "category": "transit",
+    "latitude": 5.5570,
+    "longitude": -0.1965,
+    "description": "Main taxi rank at Makola Market"
+  },
+  {
+    "id": "tudu-station",
+    "name": "Tudu Trotro Station",
+    "category": "transit",
+    "latitude": 5.5585,
+    "longitude": -0.1945,
+    "description": "Trotro station connecting Tudu to other parts of Accra"
+  },
+  {
+    "id": "obra-spot-trotro",
+    "name": "Obra Spot Trotro Station",
+    "category": "transit",
+    "latitude": 5.5545,
+    "longitude": -0.1990,
+    "description": "Major trotro hub near Obra Spot"
+  },
+  {
+    "id": "kaneshie-station",
+    "name": "Kaneshie First Light Trotro",
+    "category": "transit",
+    "latitude": 5.5590,
+    "longitude": -0.2020,
+    "description": "Trotro station at Kaneshie First Light"
+  },
+  {
+    "id": "circle-interchange",
+    "name": "Circle Interchange Trotro",
+    "category": "transit",
+    "latitude": 5.5600,
+    "longitude": -0.1930,
+    "description": "Trotro station near Circle Interchange"
+  },
+  {
+    "id": "makola-metro-mass",
+    "name": "Makola Metro Mass Stop",
+    "category": "transit",
+    "latitude": 5.5560,
+    "longitude": -0.1975,
+    "description": "Metro Mass Transit stop at Makola"
+  },
+  {
+    "id": "rawlings-park-trotro",
+    "name": "Rawlings Park Trotro",
+    "category": "transit",
+    "latitude": 5.5535,
+    "longitude": -0.1980,
+    "description": "Trotro station at Rawlings Park"
+  },
+  {
+    "id": "adabraka-trotro",
+    "name": "Adabraka Market Trotro",
+    "category": "transit",
+    "latitude": 5.5575,
+    "longitude": -0.2010,
+    "description": "Trotro connecting Adabraka to Makola"
+  },
+  {
+    "id": "makola-taxi-rank-2",
+    "name": "Makola Lane Taxi Rank",
+    "category": "transit",
+    "latitude": 5.5555,
+    "longitude": -0.1955,
+    "description": "Secondary taxi rank inside Makola lanes"
+  },
+  {
+    "id": ".accra-central-trotro",
+    "name": "Accra Central Trotro",
+    "category": "transit",
+    "latitude": 5.5540,
+    "longitude": -0.1970,
+    "description": "Trotro station at Accra Central"
+  },
+  {
+    "id": "makola-toilet-1",
+    "name": "Makola Market Public Toilet (Block A)",
+    "category": "restroom",
+    "latitude": 5.5565,
+    "longitude": -0.1960,
+    "description": "Public toilet facility in Makola Market Block A"
+  },
+  {
+    "id": "makola-toilet-2",
+    "name": "Makola Market Public Toilet (Block B)",
+    "category": "restroom",
+    "latitude": 5.5558,
+    "longitude": -0.1972,
+    "description": "Public toilet facility in Makola Market Block B"
+  },
+  {
+    "id": "tudu-public-toilet",
+    "name": "Tudu Public Toilet",
+    "category": "restroom",
+    "latitude": 5.5580,
+    "longitude": -0.1950,
+    "description": "Public toilet near Tudu station"
+  },
+  {
+    "id": "kaneshie-toilet",
+    "name": "Kaneshie Public Toilet",
+    "category": "restroom",
+    "latitude": 5.5592,
+    "longitude": -0.2015,
+    "description": "Public toilet at Kaneshie First Light"
+  },
+  {
+    "id": "obra-spot-toilet",
+    "name": "Obra Spot Public Toilet",
+    "category": "restroom",
+    "latitude": 5.5542,
+    "longitude": -0.1995,
+    "description": "Public toilet near Obra Spot"
+  },
+  {
+    "id": "circle-toilet",
+    "name": "Circle Public Toilet",
+    "category": "restroom",
+    "latitude": 5.5605,
+    "longitude": -0.1925,
+    "description": "Public toilet near Circle Interchange"
+  },
+  {
+    "id": "makola-toilet-3",
+    "name": "Makola Back Lane Toilet",
+    "category": "restroom",
+    "latitude": 5.5550,
+    "longitude": -0.1968,
+    "description": "Toilet facility at Makola back lane area"
+  },
+  {
+    "id": "rawlings-park-toilet",
+    "name": "Rawlings Park Public Toilet",
+    "category": "restroom",
+    "latitude": 5.5538,
+    "longitude": -0.1985,
+    "description": "Public toilet at Rawlings Park"
+  },
+  {
+    "id": "adabraka-toilet",
+    "name": "Adabraka Public Toilet",
+    "category": "restroom",
+    "latitude": 5.5578,
+    "longitude": -0.2005,
+    "description": "Public toilet near Adabraka Market"
+  },
+  {
+    "id": "makola-toilet-4",
+    "name": "Makola Fish Market Toilet",
+    "category": "restroom",
+    "latitude": 5.5548,
+    "longitude": -0.1962,
+    "description": "Toilet near the fish market section of Makola"
+  }
+]
