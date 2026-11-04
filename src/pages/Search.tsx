@@ -34,7 +34,7 @@ export default function Search() {
         />
       </div>
 
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto pb-28">
         {results.length === 0 ? (
           <div className="p-8 text-center text-gray-400 text-sm">
             No results found

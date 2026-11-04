@@ -11,16 +11,14 @@ export default function App() {
   return (
     <AppProvider>
       <BrowserRouter>
-        <div className="flex flex-col h-screen">
-          <div className="flex-1 overflow-hidden">
-            <Routes>
-              <Route path="/" element={<MapView />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/pins" element={<Pins />} />
-              <Route path="/route" element={<RouteView />} />
-              <Route path="/admin" element={<Admin />} />
-            </Routes>
-          </div>
+        <div className="relative w-full h-full h-screen overflow-hidden">
+          <Routes>
+            <Route path="/" element={<MapView />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/pins" element={<Pins />} />
+            <Route path="/route" element={<RouteView />} />
+            <Route path="/admin" element={<Admin />} />
+          </Routes>
           <TabBar />
         </div>
       </BrowserRouter>

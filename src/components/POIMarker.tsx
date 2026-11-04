@@ -1,16 +1,10 @@
 import { useState } from 'react';
 import { Marker, Popup } from 'react-map-gl/mapbox';
 
-const CATEGORY_COLORS: Record<string, string> = {
-  transit: '#1E88E5',
-  restroom: '#43A047',
-  custom: '#F4511E',
-};
-
 const CATEGORY_ICONS: Record<string, string> = {
   transit: '🚌',
   restroom: '🚻',
-  custom: '📍',
+  custom: '💎',
 };
 
 interface POIMarkerProps {
@@ -34,11 +28,8 @@ export function POIMarker({ coordinate, label, category, onClick }: POIMarkerPro
         }}
         anchor="bottom"
       >
-        <div
-          className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm cursor-pointer border-2 border-white shadow-md hover:scale-110 transition-transform"
-          style={{ backgroundColor: CATEGORY_COLORS[category] ?? '#999' }}
-        >
-          {CATEGORY_ICONS[category] ?? '📍'}
+        <div className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm cursor-pointer shadow-lg border-2 border-white bg-brand-charcoal active:scale-95 transition-transform">
+          {CATEGORY_ICONS[category] ?? '💎'}
         </div>
       </Marker>
       {showPopup && (

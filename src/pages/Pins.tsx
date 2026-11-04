@@ -39,7 +39,7 @@ export default function Pins() {
         </p>
       </div>
 
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto pb-28">
         {pins.length === 0 ? (
           <div className="p-6 text-center text-gray-400 text-sm border-b border-gray-100">
             No saved pins yet. Click the map to add your first gem.
