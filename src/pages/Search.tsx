@@ -9,8 +9,6 @@ type Category = 'all' | 'custom' | 'transit' | 'restroom';
 const CHIPS: { key: Category; label: string }[] = [
   { key: 'all', label: 'All' },
   { key: 'custom', label: '💎 Gems' },
-  { key: 'transit', label: '🚌 Trotro & Transit' },
-  { key: 'restroom', label: '🚻 Restrooms' },
 ];
 
 interface ResultRow {
@@ -138,9 +136,7 @@ export default function Search() {
                 onClick={() => open(row)}
                 className={`w-full flex items-center gap-3 p-4 text-left hover:bg-slate-50 transition-colors ${i > 0 ? 'border-t border-black/[0.04]' : ''}`}
               >
-                <span className="text-base shrink-0">
-                  {row.category === 'transit' ? '🚌' : row.category === 'restroom' ? '🚻' : row.category === 'you' ? '👤' : '💎'}
-                </span>
+                <span className="text-base shrink-0">{row.category === 'custom' ? '💎' : ''}</span>
                 <span className="flex-1 min-w-0">
                   <span className="block text-sm font-medium text-brand-charcoal truncate">{row.name}</span>
                   <span className="block text-xs text-slate-400 truncate">{row.description || '—'}</span>
