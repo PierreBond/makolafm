@@ -10,7 +10,8 @@ const ICONS: Record<string, (c: string) => ReactElement> = {
   ),
   map: (c) => (
     <svg className={c} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path d="M9 6.75V21m6-18v14.25m-6-14.25L3 4.5v15l6-2.25 6 2.25 6-2.25V2.25l-6 2.25-6-2.25z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M9 6l6-3 6 3v15l-6-3-6 3-6-3V3l6 3z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M9 6v15M15 3v15" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   pin: (c) => (
