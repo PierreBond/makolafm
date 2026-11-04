@@ -39,8 +39,6 @@ export default function MapView() {
           best = c;
         }
       }
-      console.log('[mapclick] vals', { lat, lng, nPois: pois.length, nGems: gems.length, nPins: pins.length });
-      console.log('[mapclick] nearest:', best?.label ?? 'none', 'dist(m):', Math.round(bestDist));
     } catch (err) {
       console.error('[mapclick] error', err);
       return;
