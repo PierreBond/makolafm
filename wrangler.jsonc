@@ -1,8 +1,17 @@
 {
   "name": "makolafm",
   "compatibility_date": "2026-01-01",
+  "main": "worker/index.ts",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "not_found_handling": "single-page-application"
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "makolafm-db",
+      "database_id": "7dddd499-7622-4111-97e3-c44819e5eace"
+    }
+  ]
 }

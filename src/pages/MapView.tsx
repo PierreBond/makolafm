@@ -10,7 +10,7 @@ import { getWalkingRoute } from '../lib/routing';
 import type { Pin } from '../types';
 
 export default function MapView() {
-  const { pois, pins, userLocation, currentRoute, selectedPOI, addPin, setCurrentRoute, setSelectedPOI } = useApp();
+  const { pois, pins, gems, userLocation, currentRoute, selectedPOI, addPin, setCurrentRoute, setSelectedPOI } = useApp();
   const [loadingRoute, setLoadingRoute] = useState(false);
   const [pendingPin, setPendingPin] = useState<{ latitude: number; longitude: number } | null>(null);
   const navigate = useNavigate();
@@ -71,6 +71,14 @@ export default function MapView() {
             coordinate={[pin.longitude, pin.latitude]}
             label={pin.label}
             category="custom"
+          />
+        ))}
+        {gems.map((gem) => (
+          <POIMarker
+            key={gem.id}
+            coordinate={[gem.longitude, gem.latitude]}
+            label={gem.label}
+            category={gem.category}
           />
         ))}
         {userLocation && (

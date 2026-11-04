@@ -5,6 +5,7 @@ import MapView from './pages/MapView';
 import Search from './pages/Search';
 import Pins from './pages/Pins';
 import RouteView from './pages/Route';
+import Admin from './pages/Admin';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
               <Route path="/search" element={<Search />} />
               <Route path="/pins" element={<Pins />} />
               <Route path="/route" element={<RouteView />} />
+              <Route path="/admin" element={<Admin />} />
             </Routes>
           </div>
           <TabBar />

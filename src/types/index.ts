@@ -12,9 +12,11 @@ export interface Pin {
   label: string;
   latitude: number;
   longitude: number;
-  category: 'custom' | 'transit' | 'restroom';
+  category: string;
   description?: string;
   created_at: string;
+  synced?: boolean;
+  deviceId?: string;
 }
 
 export interface UserLocation {
