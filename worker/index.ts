@@ -71,6 +71,14 @@ export default {
           return json({ accepted, gems: rows.results });
         }
 
+        if (req.method === 'DELETE') {
+          const id = decodeURIComponent(url.pathname.split('/').pop() || '');
+          const deviceId = url.searchParams.get('deviceId');
+          if (!id || !deviceId) return json({ error: 'Bad request' }, 400);
+          await env.DB.prepare('DELETE FROM gems WHERE id = ? AND deviceId = ?').bind(id, deviceId).run();
+          return json({ ok: true });
+        }
+
         return json({ error: 'Method not allowed' }, 405);
       } catch (err) {
         return json({ error: (err as Error).message }, 500);

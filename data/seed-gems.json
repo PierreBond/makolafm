@@ -1,0 +1,10 @@
+[
+  {
+    "id": "gem-makola-entrance-kinbu",
+    "label": "PLACEHOLDER — replace me",
+    "category": "custom",
+    "description": "Edit data/seed-gems.json with real spots you know, then run: npm run seed",
+    "latitude": 5.5507,
+    "longitude": -0.2082
+  }
+]

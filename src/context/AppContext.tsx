@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState, useCallback, type React
 import type { POI, Pin, UserLocation, RouteResult } from '../types';
 import { getAllPOIs, getAllPins, addPin as dbAddPin, deletePin as dbDeletePin, getDeviceId } from '../lib/db';
 import { watchPosition, getCurrentLocation } from '../lib/location';
-import { syncOnce } from '../lib/sync';
+import { syncOnce, deleteGem } from '../lib/sync';
 import { inBounds } from '../lib/db';
 
 interface AppContextValue {
@@ -60,7 +60,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const deletePin = useCallback((id: string) => {
     dbDeletePin(id);
     setPins(getAllPins());
-  }, []);
+    setGems((g) => g.filter((x) => x.id !== id));
+    void deleteGem(id, deviceId);
+  }, [deviceId]);
 
   return (
     <AppContext.Provider

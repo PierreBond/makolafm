@@ -52,3 +52,14 @@ export async function syncOnce(): Promise<Pin[] | null> {
 }
 
 export { queueUpsert };
+
+// Delete one of your own gems from the server. Best-effort; local copy is removed regardless.
+export async function deleteGem(id: string, deviceId: string): Promise<void> {
+  try {
+    await fetch(`/api/gems/${encodeURIComponent(id)}?deviceId=${encodeURIComponent(deviceId)}`, {
+      method: 'DELETE',
+    });
+  } catch {
+    // offline — server copy stays until it syncs again; acceptable for v1
+  }
+}
