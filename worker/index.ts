@@ -77,7 +77,7 @@ export default {
       }
     }
 
-    if (url.pathname.startsWith('/api/admin/gems/')) {
+    if (url.pathname.startsWith('/api/admin/gems')) {
       const key = req.headers.get('x-admin-key');
       if (!env.ADMIN_KEY || key !== env.ADMIN_KEY) return json({ error: 'Forbidden' }, 403);
 
