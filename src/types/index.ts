@@ -26,9 +26,14 @@ export interface UserLocation {
 
 import type { LineString } from 'geojson';
 
+export interface RouteStep {
+  instruction: string;
+  distance: number;
+}
+
 export interface RouteResult {
   geometry: LineString;
   distance: number;
   duration: number;
-  steps: string[];
+  steps: RouteStep[];
 }

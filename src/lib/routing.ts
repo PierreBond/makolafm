@@ -1,5 +1,5 @@
 import { MAPBOX_ACCESS_TOKEN } from './constants';
-import type { RouteResult } from '../types';
+import type { RouteResult, RouteStep } from '../types';
 
 export async function getWalkingRoute(
   origin: { latitude: number; longitude: number },
@@ -25,14 +25,17 @@ export async function getWalkingRoute(
   }
 }
 
-function extractSteps(route: any): string[] {
-  const steps: string[] = [];
+function extractSteps(route: any): RouteStep[] {
+  const steps: RouteStep[] = [];
   if (!route.legs) return steps;
   for (const leg of route.legs) {
     if (!leg.steps) continue;
     for (const step of leg.steps) {
       if (step.maneuver?.instruction) {
-        steps.push(step.maneuver.instruction);
+        steps.push({
+          instruction: step.maneuver.instruction,
+          distance: step.distance ?? 0,
+        });
       }
     }
   }
