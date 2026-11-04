@@ -27,8 +27,14 @@ export function watchPosition(callback: (loc: UserLocation) => void): { remove: 
 
 // Route origin falls back to market center when the tester is far away,
 // e.g. demoing from abroad — Mapbox 422s on walks of many km.
+// >2km from the market center → Mapbox 422s on long walks, so we reroute
+// from the market center and tell the user.
+export function isFarFromMarket(loc: UserLocation): boolean {
+  return getDistance(loc, { latitude: MAKOLA_CENTER[1], longitude: MAKOLA_CENTER[0] }) > 2000;
+}
+
 export function effectiveOrigin(loc: UserLocation): UserLocation {
-  return getDistance(loc, { latitude: MAKOLA_CENTER[1], longitude: MAKOLA_CENTER[0] }) > 2000
+  return isFarFromMarket(loc)
     ? { latitude: MAKOLA_CENTER[1], longitude: MAKOLA_CENTER[0] }
     : loc;
 }

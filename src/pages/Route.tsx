@@ -15,6 +15,7 @@ interface RouteState {
     duration: number;
     steps: RouteStep[];
   };
+  far?: boolean;
 }
 
 export default function Route() {
@@ -90,6 +91,20 @@ export default function Route() {
           <span className="text-[11px] font-semibold text-brand-charcoal">Navigating</span>
         </div>
       </header>
+
+      {/* Far-from-market notice */}
+      {state.far && (
+        <div className="absolute top-28 left-5 right-5 z-20 max-w-md mx-auto">
+          <div className="bg-[#FDF6D8] border border-black/[0.05] rounded-2xl px-4 py-2.5 shadow-pill-soft flex items-start gap-2.5">
+            <svg className="w-4 h-4 text-brand-charcoal shrink-0 mt-0.5 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <p className="text-xs text-brand-charcoal font-medium font-body leading-relaxed">
+              You're outside Makola. The route starts from the market's center — it will update to your exact spot when you arrive.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Destination card */}
       <div className="absolute bottom-24 left-5 right-5 z-20 max-w-md mx-auto">

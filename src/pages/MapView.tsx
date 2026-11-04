@@ -8,7 +8,7 @@ import { RoutePolyline } from '../components/RoutePolyline';
 import { useApp } from '../context/AppContext';
 import { getWalkingRoute } from '../lib/routing';
 import { getDistance } from '../lib/utils';
-import { effectiveOrigin } from '../lib/location';
+import { effectiveOrigin, isFarFromMarket } from '../lib/location';
 import type { Pin } from '../types';
 import type { POI } from '../types';
 
@@ -67,6 +67,7 @@ export default function MapView() {
     if (!selectedPOI || !userLocation) return;
     setLoadingRoute(true);
     const origin = effectiveOrigin(userLocation);
+    const far = isFarFromMarket(userLocation);
     const route = await getWalkingRoute(
       { latitude: origin.latitude, longitude: origin.longitude },
       { latitude: selectedPOI.latitude, longitude: selectedPOI.longitude }
@@ -80,6 +81,7 @@ export default function MapView() {
           origin,
           destination: selectedPOI,
           route,
+          far,
         },
       });
     }
