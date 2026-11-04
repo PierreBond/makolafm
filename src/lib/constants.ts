@@ -1,4 +1,6 @@
-export const MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN ?? '';
+export const MAPBOX_ACCESS_TOKEN =
+  import.meta.env.VITE_MAPBOX_ACCESS_TOKEN ??
+  'pk.eyJ1Ijoic2llcmJsb25kIiwiYSI6ImNtdDZsN2FldTF0N2UyeXF0MHAxcmV1N3IifQ.lY9IDhrtQhqNAan83T7opQ';
 
 export const MAKOLA_BOUNDS = {
   north: 5.55374,
