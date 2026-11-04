@@ -105,7 +105,7 @@ export default function Search() {
       </div>
 
       {/* Category chips */}
-      <div className="px-6 mb-5 overflow-x-auto pb-1" data-purpose="quick-category-filter">
+      <div className="px-6 mb-5 overflow-x-auto no-scrollbar pb-1" data-purpose="quick-category-filter">
         <div className="flex items-center gap-2 text-[12px] font-semibold whitespace-nowrap">
           {CHIPS.map((c) => {
             const isActive = chip === c.key;
