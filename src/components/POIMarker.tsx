@@ -19,16 +19,14 @@ export function POIMarker({ coordinate, label, category, onClick }: POIMarkerPro
 
   return (
     <>
-      <Marker
-        longitude={coordinate[0]}
-        latitude={coordinate[1]}
-        onClick={() => {
-          setShowPopup(true);
-          onClick?.();
-        }}
-        anchor="bottom"
-      >
-        <div className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm cursor-pointer shadow-lg border-2 border-white bg-brand-charcoal active:scale-95 transition-transform">
+      <Marker longitude={coordinate[0]} latitude={coordinate[1]} anchor="bottom">
+        <div
+          className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm cursor-pointer shadow-lg border-2 border-white bg-brand-charcoal active:scale-95 transition-transform"
+          onClick={() => {
+            setShowPopup(true);
+            onClick?.();
+          }}
+        >
           {CATEGORY_ICONS[category] ?? '💎'}
         </div>
       </Marker>

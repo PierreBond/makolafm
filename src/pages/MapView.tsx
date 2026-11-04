@@ -16,6 +16,9 @@ export default function MapView() {
   const navigate = useNavigate();
 
   const handleMapClick = useCallback((e: any) => {
+    // Ignore clicks that landed on markers/controls — only bare map taps open the Add dialog
+    const target = e?.originalEvent?.target;
+    if (target && target.tagName !== 'CANVAS') return;
     setPendingPin({ latitude: e.lngLat.lat, longitude: e.lngLat.lng });
   }, []);
 
