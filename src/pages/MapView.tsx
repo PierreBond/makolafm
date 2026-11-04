@@ -28,14 +28,22 @@ export default function MapView() {
       ...gems,
       ...pins,
     ];
+
     let best: Pin | null = null;
     let bestDist = Infinity;
-    for (const c of candidates) {
-      const d = getDistance({ latitude: lat, longitude: lng }, { latitude: c.latitude, longitude: c.longitude });
-      if (d < bestDist) {
-        bestDist = d;
-        best = c;
+    try {
+      for (const c of candidates) {
+        const d = getDistance({ latitude: lat, longitude: lng }, { latitude: c.latitude, longitude: c.longitude });
+        if (d < bestDist) {
+          bestDist = d;
+          best = c;
+        }
       }
+      console.log('[mapclick] vals', { lat, lng, nPois: pois.length, nGems: gems.length, nPins: pins.length });
+      console.log('[mapclick] nearest:', best?.label ?? 'none', 'dist(m):', Math.round(bestDist));
+    } catch (err) {
+      console.error('[mapclick] error', err);
+      return;
     }
 
     if (best && bestDist < 25) {
