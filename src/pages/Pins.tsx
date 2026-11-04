@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { getDistance } from '../lib/utils';
 import { getWalkingRoute, formatDistance } from '../lib/routing';
+import { effectiveOrigin } from '../lib/location';
 import type { Pin } from '../types';
 
 type Chip = 'all' | 'custom';
@@ -32,8 +33,9 @@ export default function Pins() {
   const handleRoute = async (target: { latitude: number; longitude: number; label: string }, id: string) => {
     if (!userLocation) return;
     setRoutingTo(id);
+    const origin = effectiveOrigin(userLocation);
     const route = await getWalkingRoute(
-      { latitude: userLocation.latitude, longitude: userLocation.longitude },
+      { latitude: origin.latitude, longitude: origin.longitude },
       { latitude: target.latitude, longitude: target.longitude }
     );
     setRoutingTo(null);
@@ -41,7 +43,7 @@ export default function Pins() {
       setCurrentRoute(route);
       navigate('/route', {
         state: {
-          origin: userLocation,
+          origin,
           destination: { latitude: target.latitude, longitude: target.longitude, name: target.label },
           route,
         },
