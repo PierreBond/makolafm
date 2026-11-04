@@ -12,7 +12,8 @@ export interface Pin {
   label: string;
   latitude: number;
   longitude: number;
-  category: 'custom';
+  category: 'custom' | 'transit' | 'restroom';
+  description?: string;
   created_at: string;
 }
 

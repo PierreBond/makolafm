@@ -4,13 +4,20 @@ import { Map } from '../components/Map';
 import { POIMarker } from '../components/POIMarker';
 import { InfoCard } from '../components/InfoCard';
 import { RoutePolyline } from '../components/RoutePolyline';
+import { AddPinDialog } from '../components/AddPinDialog';
 import { useApp } from '../context/AppContext';
 import { getWalkingRoute } from '../lib/routing';
+import type { Pin } from '../types';
 
 export default function MapView() {
   const { pois, pins, userLocation, currentRoute, selectedPOI, addPin, setCurrentRoute, setSelectedPOI } = useApp();
   const [loadingRoute, setLoadingRoute] = useState(false);
+  const [pendingPin, setPendingPin] = useState<{ latitude: number; longitude: number } | null>(null);
   const navigate = useNavigate();
+
+  const handleMapClick = useCallback((e: any) => {
+    setPendingPin({ latitude: e.lngLat.lat, longitude: e.lngLat.lng });
+  }, []);
 
   const handleGetRoute = useCallback(async () => {
     if (!selectedPOI || !userLocation) return;
@@ -48,7 +55,7 @@ export default function MapView() {
 
   return (
     <div className="relative w-full h-full">
-      <Map>
+      <Map onClick={handleMapClick}>
         {pois.map((poi) => (
           <POIMarker
             key={poi.id}
@@ -87,6 +94,26 @@ export default function MapView() {
             setSelectedPOI(null);
             setCurrentRoute(null);
           }}
+        />
+      )}
+
+      {pendingPin && !selectedPOI && (
+        <AddPinDialog
+          latitude={pendingPin.latitude}
+          longitude={pendingPin.longitude}
+          onSave={(label, category, description) => {
+            addPin({
+              id: `pin-${Date.now()}`,
+              label,
+              latitude: pendingPin.latitude,
+              longitude: pendingPin.longitude,
+              category: category as Pin['category'],
+              description: description || undefined,
+              created_at: new Date().toISOString(),
+            });
+            setPendingPin(null);
+          }}
+          onCancel={() => setPendingPin(null)}
         />
       )}
 
