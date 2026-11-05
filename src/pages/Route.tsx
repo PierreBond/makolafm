@@ -63,8 +63,8 @@ export default function Route() {
       >
         <POIMarker
           coordinate={[origin.longitude, origin.latitude]}
-          label="You"
-          category="you"
+          label={state.far ? 'Makola Market (center)' : 'You'}
+          category={state.far ? 'custom' : 'you'}
         />
         <POIMarker
           coordinate={[destination.longitude, destination.latitude]}
@@ -99,7 +99,7 @@ export default function Route() {
               <path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <p className="text-xs text-brand-charcoal font-medium font-body leading-relaxed">
-              You're outside Makola. The route starts from the market's center — it will update to your exact spot when you arrive.
+              You're outside Makola — directions start from the market's center for this test. Stand inside the market and this route begins from your spot instead.
             </p>
           </div>
         </div>
