@@ -54,11 +54,8 @@ export default function Route() {
   // Far from Makola → no route at all, centered notice in-theme instead.
   if (state.far) {
     return (
-      <div className="relative w-full h-full bg-brand-charcoal">
-        <Map>
-          <RoutePolyline geometry={route.geometry} />
-        </Map>
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-30 flex items-center justify-center p-6">
+      <div className="relative w-full h-full bg-[#F8F9FC]">
+        <div className="absolute inset-0 bg-black/40 z-30 flex items-center justify-center p-6">
           <section
             aria-label="Too far from Makola"
             className="bg-white rounded-3xl p-6 shadow-card-float border border-black/[0.04] max-w-sm w-full text-brand-charcoal"
