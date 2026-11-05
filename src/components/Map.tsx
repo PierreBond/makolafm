@@ -1,5 +1,6 @@
 import { useRef, useCallback, type ReactNode } from 'react';
 import { Map as MapGL } from 'react-map-gl/mapbox';
+import mapboxgl from 'mapbox-gl';
 import { MAPBOX_ACCESS_TOKEN, MAKOLA_CENTER, MAKOLA_BOUNDS, DEFAULT_ZOOM } from '../lib/constants';
 
 interface MapProps {
@@ -27,6 +28,7 @@ export function Map({ children, onClick, ViewState }: MapProps) {
     <div className="relative w-full h-full">
       <MapGL
         ref={mapRef}
+        mapLib={mapboxgl}
         mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
         initialViewState={ViewState ?? {
           longitude: MAKOLA_CENTER[0],
