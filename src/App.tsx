@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { TabBar } from './components/TabBar';
+import { Splash } from './components/Splash';
 import MapView from './pages/MapView';
 import Search from './pages/Search';
 import Pins from './pages/Pins';
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/admin" element={<Admin />} />
           </Routes>
           <TabBar />
+          <Splash />
         </div>
       </BrowserRouter>
     </AppProvider>

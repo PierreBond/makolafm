@@ -42,6 +42,7 @@ export function Map({ children, onClick, ViewState }: MapProps) {
         minZoom={14}
         maxZoom={20}
         attributionControl={false}
+        onLoad={() => window.dispatchEvent(new Event('makola:map-ready'))}
       >
         {children}
       </MapGL>
