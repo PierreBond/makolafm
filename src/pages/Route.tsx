@@ -50,6 +50,43 @@ export default function Route() {
   }
 
   const { origin, destination, route } = state;
+
+  // Far from Makola → no route at all, centered notice in-theme instead.
+  if (state.far) {
+    return (
+      <div className="relative w-full h-full bg-brand-charcoal">
+        <Map>
+          <RoutePolyline geometry={route.geometry} />
+        </Map>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-30 flex items-center justify-center p-6">
+          <section
+            aria-label="Too far from Makola"
+            className="bg-white rounded-3xl p-6 shadow-card-float border border-black/[0.04] max-w-sm w-full text-brand-charcoal"
+          >
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="w-9 h-9 rounded-full bg-[#F4F5F8] border border-black/[0.04] flex items-center justify-center shrink-0">
+                <svg className="w-4 h-4 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <h1 className="text-[1.125rem] leading-6 font-bold tracking-tight font-display">Too far to route</h1>
+            </div>
+            <p className="text-xs text-[#46464B] font-body leading-relaxed mb-5">
+              You're outside Makola, so walking directions can't start from your spot. Go to the market — the route will pick up from wherever you are inside it.
+            </p>
+            <button
+              type="button"
+              onClick={back}
+              className="w-full h-12 bg-brand-charcoal hover:bg-black active:scale-[0.98] text-white rounded-2xl font-bold text-xs tracking-wide transition-all"
+            >
+              Back to the Map
+            </button>
+          </section>
+        </div>
+      </div>
+    );
+  }
+
   const nextStep = route.steps[0];
 
   return (
@@ -90,20 +127,6 @@ export default function Route() {
           <span className="text-[11px] font-semibold text-brand-charcoal">Navigating</span>
         </div>
       </header>
-
-      {/* Far-from-market notice */}
-      {state.far && (
-        <div className="absolute top-28 left-5 right-5 z-20 max-w-md mx-auto">
-          <div className="bg-[#FDF6D8] border border-black/[0.05] rounded-2xl px-4 py-2.5 shadow-pill-soft flex items-start gap-2.5">
-            <svg className="w-4 h-4 text-brand-charcoal shrink-0 mt-0.5 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <p className="text-xs text-brand-charcoal font-medium font-body leading-relaxed">
-              You're outside Makola — directions start from the market's center for this test. Stand inside the market and this route begins from your spot instead.
-            </p>
-          </div>
-        </div>
-      )}
 
       {/* Destination card */}
       <div className="absolute bottom-24 left-5 right-5 z-20 max-w-md mx-auto">
