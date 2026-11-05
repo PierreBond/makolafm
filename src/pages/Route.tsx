@@ -87,7 +87,6 @@ export default function Route() {
           <span className="text-[13px] font-bold tracking-tight">Makola Market</span>
         </button>
         <div className="pointer-events-auto h-8 px-3 bg-white/95 backdrop-blur-md rounded-full shadow-pill-soft border border-black/[0.04] flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
           <span className="text-[11px] font-semibold text-brand-charcoal">Navigating</span>
         </div>
       </header>
